@@ -1,0 +1,57 @@
+
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Sozyar & Rawand</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css" rel="stylesheet">
+
+  </head>
+  <body>
+    <div class="heart love1"></div>
+    <div class="heart love2"></div>
+    <br>
+    <br>
+    <br>
+    <br>
+    <div class="flex items-center justify-center h-screen">
+    	<div class="text-white  font-bold rounded-lg border shadow-lg p-10 days" id="days" style="background-color:#ff577a; font-size: 35px; font-family: -apple-system, BlinkMacSystemFont, sans-serif; text-align: center;">
+    		S
+
+    	</div>
+
+      </div>
+
+      <script type="text/javascript">
+
+        window.onload = function() {
+          // Month Day, Year Hour:Minute:Second, id-of-element-container
+          countUpFromTime("Mar 3, 2020 12:00:00", 'days'); // ****** Change this line!
+        };
+        function countUpFromTime(countFrom, id) {
+          countFrom = new Date(countFrom).getTime();
+          var now = new Date(),
+              countFrom = new Date(countFrom),
+              timeDifference = (now - countFrom);
+
+          var secondsInADay = 60 * 60 * 1000 * 24,
+              secondsInAHour = 60 * 60 * 1000;
+
+          days = Math.floor(timeDifference / (secondsInADay) * 1);
+          hours = Math.floor((timeDifference % (secondsInADay)) / (secondsInAHour) * 1);
+          mins = Math.floor(((timeDifference % (secondsInADay)) % (secondsInAHour)) / (60 * 1000) * 1);
+          secs = Math.floor((((timeDifference % (secondsInADay)) % (secondsInAHour)) % (60 * 1000)) / 1000 * 1);
+
+          var idEl = document.getElementById(id);
+          let hr = "Together For <br> <span class='text-3xl' style='font-weight:normal'>" + days +" Days and " + hours + " Hours and " + mins + " Minutes and " + secs + " Seconds </span>"
+          idEl.innerHTML = hr;
+
+          clearTimeout(countUpFromTime.interval);
+          countUpFromTime.interval = setTimeout(function(){ countUpFromTime(countFrom, id); }, 1000);
+        }
+      </script>
+  </body>
+
+
+</html>
